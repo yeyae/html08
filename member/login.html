@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 페이지</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div>
+          <a href="index.html"><h1>MY USERS</h1></a>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <div class="login-page">
+        <h1>WELCOME</h1>
+        <div class="form">
+          <form class="login-form" props:"id">
+            <input id="id" name="id" type="text" placeholder="ID" />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="password"
+            />
+            <button class="login-btn" type="button" onclick="login()">
+              로그인
+            </button>
+            <button onclick="location.href='register.html'" type="button">
+              회원가입
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li><a href="#">개인정보 처리방침</a></li>
+        <li><a href="#">이용 약관</a></li>
+        <li><a href="#">오시는길</a></li>
+        <li>&copy; GLOBALIN</li>
+      </ul>
+    </footer>
+  </body>
+</html>

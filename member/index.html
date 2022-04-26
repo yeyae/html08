@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body onload="index()">
+    <header>
+      <nav class="header-nav">
+        <div>
+          <a href="index.html"><h1>MY USERS</h1></a>
+        </div>
+        <div>
+          <form action="#">
+            <input type="text" placeholder="이름을 입력하세요" />
+            <input type="submit" value="검색" />
+          </form>
+        </div>
+        <div>
+          <span class="nav-menu" id="nav-login"
+            ><a href="login.html">로그인</a></span
+          >
+          <span class="nav-menu" id="nav-logout"
+            ><a href="javascript:logout()">로그아웃</a></span
+          >
+          <span class="nav-menu"
+            ><a href="javascript:updateUser()">정보수정</a></span
+          >
+          <span class="nav-menu"
+            ><a href="javascript:deleteAccount()">회원탈퇴</a></span
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section id="main-section"></section>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li><a href="#">개인정보 처리방침</a></li>
+        <li><a href="#">이용 약관</a></li>
+        <li><a href="#">오시는 길</a></li>
+        <li>&copy; GLOBALIN</li>
+      </ul>
+    </footer>
+    <!-- 여러분들이 동적으로 태그를 만들고, 스타일을 입히고-->
+    <!-- Random api를 통해서 가져온 10명의 사용자 정보를 리스트로 만들기-->
+  </body>
+</html>

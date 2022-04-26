@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // AJAX (Asyncronous Javascript And XML)
+      // XMLHttpRequest (XHR) 방식으로 요청하기
+      // const ==> 상수, 변하지 않음
+      const xhr = new XMLHttpRequest(); // 1번 상태
+      const method = "GET"; // form 에서 데이터를 보내는 방식중 하나
+      // "GET" 방식 => 데이터를 가져와서 읽기만 하겠다.
+      const url = "https://random-data-api.com/api/users/random_user?size=10";
+
+      xhr.open(method, url); // xhr 요청 생성 (method=get,url=파일또는주소) 2번상태
+      xhr.setRequestHeader("Content-Type", "application/text");
+      // 헤더에 사전 정보를 실어서 보낸다.
+
+      // xhr 객체의 이벤트 리스너 ==> 이벤트를 처리할 함수를 작성
+      // 서버로 보낸 요청에 대한 응답을 받았을때 어떤 동작을 할것인지 작성
+      // 요청에 대한 상태가 변화할때 (이벤트가 발생) 실행되는 함수를 정의.
+      // readyState 의 상태 (5 가지)
+      // 1. UNSENT(0) : XMLHttpRequest 객체가 생성된 상태
+      // 2. OPEND(1) : open() 메소드가 성공적으로 실행된 상태
+      // 3. HEADERS_RECEIVED(2) : 모든 요청에 대한 응답이 도착한 상태
+      // 4. LOADING(3) : 요청했던 데이터가 처리중인 상태
+      // 5. DONE(4) : 데이터 처리가 완료된 상태
+      xhr.onreadystatechange = function () {
+        // 2, 3, 4번 상태
+        // 4번상태 ?? DONE
+        // 데이터 처리가 모두 완료 되면?
+        if (xhr.readyState === xhr.DONE) {
+          // 요청이 완료된 후에 http 상태 코드를 확인
+          // 200 : SUCCESS (요청 성공)
+          // 404 : NOT FOUND (요청받은 리소스를 찾을수 없다.)
+          if (xhr.status == 200) {
+            // 요청이 성공한 상태
+            const resJson = JSON.parse(xhr.responseText); // 서버에서 응답을 돌려줌.
+            // 문자열을 객체로 바꿔준다.
+
+            const userData = resJson;
+            // 우리가 서버에게 데이터를 요청하려면 서버에서 응답해주는 형식도 알고 있어야된다.
+            console.log(userData);
+          }
+        }
+      };
+      xhr.send(); // 요청을 서버에 보낸다.
+
+      // fetch api
+      // XMLHttpRequest 를 대체하기 위해서 등장한 API
+      // API ? Application Programming Interface
+      // 컴퓨터 프로그램 사이의 연결 ==> 다른 컴퓨터에게 서비스를 제공하기 위해 만들어진것
+
+      fetch(url)
+        .then(
+          (response) => {
+            return response.json();
+          }
+          // 응답을 json 객체 형식으로 반환
+        )
+        .then(
+          (data) => {
+            console.log(data);
+          } // 전달받은 응답 결과 data를 출력
+        )
+        .catch((error) => {
+          console.log(error); // 발생한 예외 상황에 대한 처리
+        });
+      // 요청시 발생한 예외 상황에대한 처리도 가능.
+      // 화살표 함수 , arrow function ==> 최신식 함수 선언 방법
+    </script>
+  </head>
+  <body></body>
+</html>
